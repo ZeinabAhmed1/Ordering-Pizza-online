@@ -1,0 +1,469 @@
+
+<html>
+<head>
+   <link rel ="icon" href="C:\Users\user\Pictures\Screenshots\Capture1.png"</link>
+   <title>Pizza</title>
+<title>online order</title>
+<SCRIPT LANGUAGE="javascript" TYPE="text/javascript">
+function count(f,n,u)
+{
+  f.line_sum[n].value = f.line[n].value * u;
+  
+  if(f.line_sum[n].value == "NaN")
+  {
+    alert("Error:\nYou may only enter numbers...\nPlease retry");
+    f.line[n].value = f.line[n].value.substring(0, f.line[n].value.length-1);
+    f.line_sum[n].value = f.line[n].value * u;
+    if(f.line_sum[n].value == "0") f.line_sum[n].value = "";
+  }
+  else 
+  {
+    var gt = 0;
+    for(i=0; i < f.line_sum.length; i++)
+    {
+      gt +=  Math.ceil(f.line_sum[i].value * 1000) /1000;
+    }
+    gt = Math.round(gt * 1000)/1000;
+    f.grand_total.value = "$"+ gt;
+   
+   }
+}
+function send_data(g)
+{
+  
+  if(document.f.grand_total.value == "Nil")
+  {
+    var conf = confirm("No items are entered - \nDo you want to submit a blank order?");
+    if(conf)g.submit();
+	else init();
+  }
+  else g.submit();
+}
+
+function init()
+{
+  document.f.reset();
+  document.f.line[0].select();
+  document.f.line[0].focus();
+  document.g.order.value="";
+}
+
+window.onload=init;
+
+
+
+function pizza_button() {
+    var x = document.getElementById("table1");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+} 
+function starters_button() {
+    var x = document.getElementById("table2");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+} 
+
+function pasta_button() {
+    var x = document.getElementById("table3");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+} 
+
+function desserts_button() {
+    var x = document.getElementById("table4");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+} 
+
+function drinks_button() {
+    var x = document.getElementById("table5");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+} 
+function offers_button() {
+    var x = document.getElementById("table6");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+} 
+</SCRIPT>
+
+	<style type="text/css"> 
+ 
+ 
+ body{
+	margin-top:0px;
+	}
+ .menu{
+width:100%;
+height:80px;
+background-color:rgba(0,0,0,0.5);/*0.5 is for OPacity*//*0,0,0 are for red and green and blue */
+position:fixed;
+margin-left:-8px;
+}
+.leftmenu{
+width:25%;
+float: left;
+}
+.leftmenu h1{
+padding-left:90px;
+font-weight:bold;
+color:white;
+font-size:70px;
+font-style: oblique;
+margin-top:-13px;
+}	
+.rightmenu{
+width:75%;     /*????? ?? ??? ?? ??? ?? div ?? */
+height:100px;   /* ????? ?? ??? ?? ?????? ?? div ?? */
+float :right;
+}
+.rightmenu ul {
+margin-left:200px;
+margin-top:-138px;
+}
+ul li {
+display:inline-block;
+}
+.rightmenu ul li a{
+text-decoration:none;
+display: inline-block;
+list-style:none;
+font-size:18px;
+color:white;
+font-weight:bold;
+line-height:70px;
+margin-left:60px; 
+}
+#fourthbutton a{
+color:#FBB117;
+}
+.rightmenu ul li a:hover{
+color:#FBB117;
+}
+ 
+img{
+
+margin-top:20px;
+}
+ 
+table{
+width:25%;high:21%
+}
+
+ .cont_details {
+	margin:10px;
+	padding:20px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    border-radius: 10px;
+	margin-bottom:19px;
+	color:black;
+}
+
+ label{
+	display:block;
+	font-size:18px;
+	color:black;
+    font-weight:bold;
+}
+div
+{
+    padding:10px;
+    font-weight:bold;
+	width:25%;
+	hight:20%
+	
+}
+.color_b{
+width:100px;
+height:50px;
+color:#FBB117;
+background-color:white;
+font-size:20px;
+font-style: oblique;
+font-weight:bold;
+border-radius:20px;
+}
+
+</style>
+</head>
+<body>
+
+
+<div class="menu">
+      <div class="leftmenu">
+            <h1> Pizza </h1>
+      </div>
+	  <div  class="rightmenu">
+	        <ul>           
+		        <li> <a href="pizza3.html">Home</a></li>
+				<li> <a href="menu.html"> Menu</a></li>
+				<li> <a href="offers.html">Offers</a></li>
+				<li  id="fourthbutton"> <a href="orderonline.html">Order Online</a></li>
+			</ul>
+	  </div>
+   </div>
+
+
+
+
+
+<img src="online.PNG">
+<center><FORM NAME="f">
+<TABLE  BORDER="2"  CELLPADDING="5" CELLSPACING="0" SUMMARY="">
+<TBODY>
+<TR>
+<TD COLSPAN="4" ALIGN="center" ><B> <font color ="#FBB117" size="10%" style="text-shadow: 5px 3px #848482;">Order Form </font></B></TD>
+</TR>
+</TBODY>
+</TABLE>
+
+
+<input type="button" onclick="pizza_button()" value="pizza" class="color_b"/>
+<TABLE  BORDER="2"  CELLPADDING="5" CELLSPACING="0" SUMMARY="" id="table1">
+<TBODY>
+<TR class="color1" >
+<TD><font color ="#FBB117" size="5%">pizza</font></TD><TD><font color ="#FBB117" size="5%">Qty</font></TD><TD><font color ="#FBB117" size="5%">Each</font></TD><TD ALIGN="right"><font color ="#FBB117" size="5%">Total</font></TD>
+</TR>
+<TR>
+<TD>  Margherita medium </TD><TD><INPUT NAME="line" TYPE="text" SIZE="10" VALUE="" ONKEYUP="count(this.form,0,30)"></TD>
+<TD>30 EGP</TD><TD ALIGN="right"><INPUT NAME="line_sum" TYPE="text" SIZE="10" READONLY></TD>
+</TR>
+<TR >
+<TD>  Margherita large </TD>
+<TD><INPUT NAME="line" TYPE="text" SIZE="10" VALUE="" ONKEYUP="count(this.form,1,40)"></TD>
+<TD>40 EGP</TD><TD ALIGN="right"><INPUT NAME="line_sum" TYPE="text" SIZE="10" READONLY></TD>
+</TR>
+<TR>
+<TD> Sea food medium </TD><TD><INPUT NAME="line" TYPE="text" SIZE="10" VALUE="" ONKEYUP="count(this.form,2,45)">
+</TD><TD>45 EGP</TD><TD ALIGN="right"><INPUT NAME="line_sum" TYPE="text" SIZE="10" READONLY></TD>
+</TR>
+<TR>
+<TD> Sea food large </TD><TD><INPUT NAME="line" TYPE="text" SIZE="10" VALUE="" ONKEYUP="count(this.form,3,60)">
+</TD><TD>60 EGP</TD><TD ALIGN="right"><INPUT NAME="line_sum" TYPE="text" SIZE="10" READONLY></TD>
+</TR>
+<TR>
+<TD> Classic pepperoni medium </TD><TD><INPUT NAME="line" TYPE="text" SIZE="10" VALUE="" ONKEYUP="count(this.form,4,40)">
+</TD><TD>40 EGP</TD><TD ALIGN="right"><INPUT NAME="line_sum" TYPE="text" SIZE="10" READONLY></TD>
+</TR>
+<TR>
+<TD>Classic pepperoni large </TD><TD><INPUT NAME="line" TYPE="text" SIZE="10" VALUE="" ONKEYUP="count(this.form,5,45)">
+</TD><TD>45 EGP</TD><TD ALIGN="right"><INPUT NAME="line_sum" TYPE="text" SIZE="10" READONLY></TD>
+</TR>
+<TR>
+<TD>prawn medium </TD><TD><INPUT NAME="line" TYPE="text" SIZE="10" VALUE="" ONKEYUP="count(this.form,6,42)">
+</TD><TD>42 EGP</TD><TD ALIGN="right"><INPUT NAME="line_sum" TYPE="text" SIZE="10" READONLY></TD>
+</TR>
+<TR>
+<TD>prawn large </TD><TD><INPUT NAME="line" TYPE="text" SIZE="10" VALUE="" ONKEYUP="count(this.form,7,58)">
+</TD><TD>58 EGP</TD><TD ALIGN="right"><INPUT NAME="line_sum" TYPE="text" SIZE="10" READONLY></TD>
+</TR>
+<TR>
+<TD>super supeme medium </TD><TD><INPUT NAME="line" TYPE="text" SIZE="10" VALUE="" ONKEYUP="count(this.form,8,43)">
+</TD><TD>43 EGP</TD><TD ALIGN="right"><INPUT NAME="line_sum" TYPE="text" SIZE="10" READONLY></TD>
+</TR>
+<TD>super supeme large </TD><TD><INPUT NAME="line" TYPE="text" SIZE="10" VALUE="" ONKEYUP="count(this.form,9,60)">
+</TD><TD>60 EGP</TD><TD ALIGN="right"><INPUT NAME="line_sum" TYPE="text" SIZE="10" READONLY></TD>
+</TR>
+<TD>vegetarian medium </TD><TD><INPUT NAME="line" TYPE="text" SIZE="10" VALUE="" ONKEYUP="count(this.form,10,18)">
+</TD><TD>18 EGP</TD><TD ALIGN="right"><INPUT NAME="line_sum" TYPE="text" SIZE="10" READONLY></TD>
+</TR>
+<TD>vegetarian large </TD><TD><INPUT NAME="line" TYPE="text" SIZE="10" VALUE="" ONKEYUP="count(this.form,11,28)">
+</TD><TD>28 EGP</TD><TD ALIGN="right"><INPUT NAME="line_sum" TYPE="text" SIZE="10" READONLY></TD>
+</TR>
+</TBODY>
+</TABLE>
+
+
+
+<input type="button" onclick="pasta_button()" value="pasta" class="color_b" />
+<TABLE  BORDER="2"  CELLPADDING="5" CELLSPACING="0" SUMMARY="" id="table3">
+<TBODY>
+<TR class="color1">
+<TD><font color ="#FBB117" size="5%"> pasta </font></TD><TD><font color ="#FBB117" size="5%"> Qty </font></TD><TD><font color ="#FBB117" size="5%"> Each </font></TD><TD ALIGN="right"><font color ="#FBB117" size="5%"></font>Total </font></TD>
+</TR>
+<TR>
+<TD>bolognese meat & mushroom </TD><TD><INPUT NAME="line" TYPE="text" SIZE="10" VALUE="" ONKEYUP="count(this.form,12,30)">
+</TD><TD>30 EGP</TD><TD ALIGN="right"><INPUT NAME="line_sum" TYPE="text" SIZE="10" READONLY></TD>
+</TR>
+<TR>
+<TD>Lasagna </TD><TD><INPUT NAME="line" TYPE="text" SIZE="10" VALUE="" ONKEYUP="count(this.form,13,25)">
+</TD><TD>25 EGP</TD><TD ALIGN="right"><INPUT NAME="line_sum" TYPE="text" SIZE="10" READONLY></TD>
+</TR>
+<TR>
+<TD>Alfredo </TD><TD><INPUT NAME="line" TYPE="text" SIZE="10" VALUE="" ONKEYUP="count(this.form,14,36)">
+</TD><TD>36 EGP</TD><TD ALIGN="right"><INPUT NAME="line_sum" TYPE="text" SIZE="10" READONLY></TD>
+</TR>
+</TBODY>
+</TABLE>
+
+
+
+
+
+<input type="button" onclick="starters_button()" value="starters" class="color_b" />
+<TABLE  BORDER="2"  CELLPADDING="5" CELLSPACING="0" SUMMARY="" id="table2">
+<TBODY>
+<TR class="color1" >
+<TD><font color ="#FBB117" size="5%">starters</font></TD><TD><font color ="#FBB117" size="5%">Qty</font></TD><TD><font color ="#FBB117"size="5%"> Each </font></TD><TD ALIGN="right"><font color ="#FBB117" size="5%"> Total </font></TD>
+</TR>
+<TR>
+<TD> potato </TD><TD><INPUT NAME="line" TYPE="text" SIZE="10" VALUE="" ONKEYUP="count(this.form,15,19)">
+</TD><TD>19 EGP</TD><TD ALIGN="right"><INPUT NAME="line_sum" TYPE="text" SIZE="10" READONLY></TD>
+</TR>
+<TR>
+<TD> Chicken tenferloins</TD><TD><INPUT NAME="line" TYPE="text" SIZE="10" VALUE="" ONKEYUP="count(this.form,16,28)">
+</TD><TD>28 EGP</TD><TD ALIGN="right"><INPUT NAME="line_sum" TYPE="text" SIZE="10" READONLY></TD>
+</TR>
+<TR>
+<TD> Trio </TD><TD><INPUT NAME="line" TYPE="text" SIZE="10" VALUE="" ONKEYUP="count(this.form,17,54)">
+</TD><TD>54 EGP</TD><TD ALIGN="right"><INPUT NAME="line_sum" TYPE="text" SIZE="10" READONLY></TD>
+</TR>
+<TR>
+<TD>buffalo chichen wings </TD><TD><INPUT NAME="line" TYPE="text" SIZE="10" VALUE="" ONKEYUP="count(this.form,18,28)">
+</TD><TD>28 EGP</TD><TD ALIGN="right"><INPUT NAME="line_sum" TYPE="text" SIZE="10" READONLY></TD>
+</TR>
+<TR>
+<TD>garlic bread </TD><TD><INPUT NAME="line" TYPE="text" SIZE="10" VALUE="" ONKEYUP="count(this.form,19,10)">
+</TD><TD>10 EGP</TD><TD ALIGN="right"><INPUT NAME="line_sum" TYPE="text" SIZE="10" READONLY></TD>
+</TR>
+</TBODY>
+</TABLE>
+
+
+ 
+
+<input type="button" onclick="desserts_button()" value="desserts" class="color_b" />
+<TABLE  BORDER="2"  CELLPADDING="5" CELLSPACING="0" SUMMARY="" id="table4">
+</TBODY>
+<TR class="color1">
+<TD><font color ="#FBB117"size="5%"> desserts </font></TD><TD><font color ="#FBB117" size="5%">Qty</font></TD><TD><font color ="#FBB117" size="5%">Each</font></TD><TD ALIGN="right"><font color ="#FBB117" size="5%">Total</font></TD>
+</TR>
+<TR>
+<TD>Chocolate cake </TD><TD><INPUT NAME="line" TYPE="text" SIZE="10" VALUE="" ONKEYUP="count(this.form,20,25)">
+</TD><TD>25 EGP</TD><TD ALIGN="right"><INPUT NAME="line_sum" TYPE="text" SIZE="10" READONLY></TD>
+</TR>
+<TR>
+<TD>Cheese cake </TD><TD><INPUT NAME="line" TYPE="text" SIZE="10" VALUE="" ONKEYUP="count(this.form,21,25)">
+</TD><TD>25 EGP</TD><TD ALIGN="right"><INPUT NAME="line_sum" TYPE="text" SIZE="10" READONLY></TD>
+</TR><TR>
+<TD>Cinnaparts </TD><TD><INPUT NAME="line" TYPE="text" SIZE="10" VALUE="" ONKEYUP="count(this.form,22,19)">
+</TD><TD>19 EGP</TD><TD ALIGN="right"><INPUT NAME="line_sum" TYPE="text" SIZE="10" READONLY></TD>
+</TR>
+</TBODY>
+</TABLE>
+
+
+<input type="button" onclick="drinks_button()" value="drinks" class="color_b" />
+<TABLE  BORDER="2"  CELLPADDING="5" CELLSPACING="0" SUMMARY="" ID="table5">
+<TBODY>
+<TR class="color1">
+<TD><font color ="#FBB117" size="5%"> drinks </font></TD><TD><font color ="#FBB117" size="5%"> Qty </font></TD><TD><font color ="#FBB117" size="5%"> Each </font></TD><TD ALIGN="right"><font color ="#FBB117" size="5%"> Total </font></TD>
+</TR>
+<TR>
+<TD>Pepsi </TD><TD><INPUT NAME="line" TYPE="text" SIZE="10" VALUE="" ONKEYUP="count(this.form,23,10)">
+</TD><TD>10 EGP</TD><TD ALIGN="right"><INPUT NAME="line_sum" TYPE="text" SIZE="10" READONLY></TD>
+</TR>
+<TR>
+<TD>Mirinda </TD><TD><INPUT NAME="line" TYPE="text" SIZE="10" VALUE="" ONKEYUP="count(this.form,24,10)">
+</TD><TD>10 EGP</TD><TD ALIGN="right"><INPUT NAME="line_sum" TYPE="text" SIZE="10" READONLY></TD>
+</TR>
+<TR>
+<TD> 7 Up </TD><TD><INPUT NAME="line" TYPE="text" SIZE="10" VALUE="" ONKEYUP="count(this.form,25,10)">
+</TD><TD>10 EGP</TD><TD ALIGN="right"><INPUT NAME="line_sum" TYPE="text" SIZE="10" READONLY></TD>
+</TR>
+<TR>
+<TD>Mineral water </TD><TD><INPUT NAME="line" TYPE="text" SIZE="10" VALUE="" ONKEYUP="count(this.form,26,7)">
+</TD><TD>7 EGP</TD><TD ALIGN="right"><INPUT NAME="line_sum" TYPE="text" SIZE="10" READONLY></TD>
+</TR>
+</TBODY>
+</TABLE>
+
+
+<input type="button" onclick="offers_button()" value="offers" class="color_b" />
+<TABLE  BORDER="2"  CELLPADDING="5" CELLSPACING="0" SUMMARY="" ID="table6">
+<TBODY>
+<TR class="color1">
+<TD><font color ="#FBB117" size="5%"> offers </font></TD><TD><font color ="#FBB117" size="5%"> Qty </font></TD><TD><font color ="#FBB117" size="5%"> Each </font></TD><TD ALIGN="right"><font color ="#FBB117" size="5%"> Total </font></TD>
+</TR>
+<TR>
+<TD>super saver deal pan pizza </TD><TD><INPUT NAME="line" TYPE="text" SIZE="10" VALUE="" ONKEYUP="count(this.form,27,99)">
+</TD><TD>99 EGP</TD><TD ALIGN="right"><INPUT NAME="line_sum" TYPE="text" SIZE="10" READONLY></TD>
+</TR>
+<TR>
+<TD>family meal </TD><TD><INPUT NAME="line" TYPE="text" SIZE="10" VALUE="" ONKEYUP="count(this.form,28,129)">
+</TD><TD>129 EGP</TD><TD ALIGN="right"><INPUT NAME="line_sum" TYPE="text" SIZE="10" READONLY></TD>
+</TR>
+<TR>
+<TD> big cheese box </TD><TD><INPUT NAME="line" TYPE="text" SIZE="10" VALUE="" ONKEYUP="count(this.form,29,145)">
+</TD><TD>145 EGP</TD><TD ALIGN="right"><INPUT NAME="line_sum" TYPE="text" SIZE="10" READONLY></TD>
+</TR>
+<TR>
+<TD>extreme meal </TD><TD><INPUT NAME="line" TYPE="text" SIZE="10" VALUE="" ONKEYUP="count(this.form,30,180)">
+</TD><TD>180 EGP</TD><TD ALIGN="right"><INPUT NAME="line_sum" TYPE="text" SIZE="10" READONLY></TD>
+<TR>
+<TD>chicken extreme meal </TD><TD><INPUT NAME="line" TYPE="text" SIZE="10" VALUE="" ONKEYUP="count(this.form,31,190)">
+</TD><TD>190 EGP</TD><TD ALIGN="right"><INPUT NAME="line_sum" TYPE="text" SIZE="10" READONLY></TD>
+</TR>
+<TR>
+<TD>super saver deal stuffd crust </TD><TD><INPUT NAME="line" TYPE="text" SIZE="10" VALUE="" ONKEYUP="count(this.form,32,149)">
+</TD><TD>149 EGP</TD><TD ALIGN="right"><INPUT NAME="line_sum" TYPE="text" SIZE="10" READONLY></TD>
+</TR>
+<TR>
+<TD>party box</TD><TD><INPUT NAME="line" TYPE="text" SIZE="10" VALUE="" ONKEYUP="count(this.form,33,199)">
+</TD><TD>199 EGP</TD><TD ALIGN="right"><INPUT NAME="line_sum" TYPE="text" SIZE="10" READONLY></TD>
+</TR>
+<TR>
+<TD>triple treat box </TD><TD><INPUT NAME="line" TYPE="text" SIZE="10" VALUE="" ONKEYUP="count(this.form,34,155)">
+</TD><TD>155 EGP</TD><TD ALIGN="right"><INPUT NAME="line_sum" TYPE="text" SIZE="10" READONLY></TD>
+</TR>
+</TBODY>
+</TABLE>
+
+
+<TABLE  BORDER="2"  CELLPADDING="5" CELLSPACING="0" SUMMARY="" id="bgc" >
+<TR BGCOLOR="#FBB117">
+<TD><INPUT TYPE="button" VALUE="Reset" ONCLICK="init()" style="width:100px;height:40px;color:black;background-color:white;font-size:20px;font-style: oblique;font-weight:bold;"></TD>
+<TD COLSPAN="2" ALIGN="right"><font size="4%" style="font-weight:bold;">Grand Total :</font> </TD><TD ALIGN="right"><INPUT NAME="grand_total" TYPE="text" SIZE="15" READONLY></TD>
+</TR>
+<TR><TD COLSPAN="4" ALIGN="center" color="#FBB117">
+<INPUT TYPE="button" VALUE="Press to Submit Order" ONCLICK="send_data(this.form)"style="width:250px;height:40px;color:black;background-color:#FBB117;font-size:20px;font-style: oblique;font-weight:bold;border-radius:10px;"></TD>
+</TR>
+</TBODY>
+</TABLE>
+ <center> <div class="cont_details">
+<fieldset>
+ <legend><font color ="#FBB117" size="5%"style="text-shadow: 3px 1px #848482;">Contact Details</font></legend>
+  <label for='name'><font color ="#FBB117" size="5%" style="text-shadow: 3px 1px #848482;">Name</font></label>
+  <input type="text" id="name" name='name' />
+ <br/>
+ <label for='address'><font color ="#FBB117" size="5%"style="text-shadow: 3px 1px #848482;">Address</font></label>
+<input type="text" id="address" name='address' />
+ <br/>
+ <label for='phonenumber'><font color ="#FBB117" size="5%"style="text-shadow: 3px 1px #848482;">Phone Number</font></label>
+<input type="text"  id="phonenumber" name='phonenumber'/>
+<br/>
+ </fieldset>
+ </div>
+</FORM>
+</BODY>
+</HTML>
